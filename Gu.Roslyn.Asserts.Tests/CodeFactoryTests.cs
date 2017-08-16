@@ -94,6 +94,7 @@ namespace Gu.Roslyn.Asserts.Tests
                                        .EnumerateFiles("*.cs", SearchOption.AllDirectories)
                                        .Select(f => f.Name)
                                        .Where(x => !x.StartsWith("TemporaryGeneratedFile_"))
+                                       .Where(x => x != "AssemblyInfo.cs")
                                        .Distinct()
                                        .OrderBy(x => x)
                                        .ToArray();

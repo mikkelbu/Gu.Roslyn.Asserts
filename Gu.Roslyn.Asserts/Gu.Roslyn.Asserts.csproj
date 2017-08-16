@@ -1,14 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <CodeAnalysisRuleSet>Gu.Roslyn.Asserts.ruleset</CodeAnalysisRuleSet>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\net46\Gu.Roslyn.Asserts.xml</DocumentationFile>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/JohanLarsson/Gu.Roslyn.Asserts</PackageProjectUrl>
+    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/JohanLarsson/Gu.Roslyn.Asserts</RepositoryUrl>
+    <PackageTags>Roslyn Diagnostic Analyzer Test Assert</PackageTags>
+    <Authors>Johan Larsson</Authors>
+    <PackageReleaseNotes>Try netstandard2.0</PackageReleaseNotes>
+    <Version>0.2.3.0-dev</Version>
+    <Description>Asserts for testing Roslyn analyzers and code fixes.</Description>
+    <Copyright>Copyright © Johan Larsson 2017</Copyright>
+    <AssemblyVersion>0.2.3.0</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\net46\Gu.Roslyn.Asserts.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\Gu.Roslyn.Asserts.xml</DocumentationFile>
   </PropertyGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
+
+  <ItemGroup>
+    <PackageReference Include="AsyncUsageAnalyzers" Version="1.0.0-alpha003" Exclude="Build,Analyzers" />
+    <PackageReference Include="Gu.Analyzers" Version="0.1.11.25-dev" Exclude="Build,Analyzers" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.3.1" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" Exclude="Build,Analyzers" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
 </Project>
